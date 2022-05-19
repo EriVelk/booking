@@ -25,3 +25,13 @@
     bottom: 20px;
     left: 20px;
 }
+
+.f-title{
+    text-shadow: 1px 2px #999;
+    font-size: x-large;
+}
+
+.f-subtitle{
+    text-shadow: 1px 2px #999;
+    font-size: large;
+}
