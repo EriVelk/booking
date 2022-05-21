@@ -1,39 +1,29 @@
 import React from 'react'
 import "./featuredproperties.css"
+import useFetch from '../../hooks/useFetch';
 
 const FeaturedProperties = () => {
+
+    const {data, loading, error} = useFetch("/hotels?featured=true&min=10&max=300")
+    
+
     return (
         <div className='fp'>
-            <div className='fpItem'>
-                <img src='https://t-cf.bstatic.com/static/img/theme-index/carousel_320x240/bg_glamping/6e181b9e942c160f4605239be7ddc1728cbcc4c8.jpg' alt='' className='fpImg' />
-                <span className='fpName'>Aparthotel Stare Miastro</span>
-                <span className='fpCity'>Madrid</span>
-                <span className='fpPrice'>Starting from $120</span>
-                <div className='fpRating'>
-                    <button>8.9</button>
+        {loading ? "Loading" : <>
+        {data?.map(item=>(
+            <div className='fpItem' key={item._id}>
+                <img src={item.photos[0]} alt='' className='fpImg' />
+                <span className='fpName'>{item.name}</span>
+                <span className='fpCity'>{item.city}</span>
+                <span className='fpPrice'>Starting from ${item.cheapestPrice}</span>
+                {item.rating && <div className='fpRating'>
+                    <button>{item.rating}</button>
                     <span>Excellent</span>
-                </div>
+                </div>}
             </div>
-            <div className='fpItem'>
-                <img src='https://t-cf.bstatic.com/static/img/theme-index/carousel_320x240/bg_glamping/6e181b9e942c160f4605239be7ddc1728cbcc4c8.jpg' alt='' className='fpImg' />
-                <span className='fpName'>Aparthotel Stare Miastro</span>
-                <span className='fpCity'>Madrid</span>
-                <span className='fpPrice'>Starting from $120</span>
-                <div className='fpRating'>
-                    <button>8.9</button>
-                    <span>Excellent</span>
-                </div>
-            </div>
-            <div className='fpItem'>
-                <img src='https://t-cf.bstatic.com/static/img/theme-index/carousel_320x240/bg_glamping/6e181b9e942c160f4605239be7ddc1728cbcc4c8.jpg' alt='' className='fpImg' />
-                <span className='fpName'>Aparthotel Stare Miastro</span>
-                <span className='fpCity'>Madrid</span>
-                <span className='fpPrice'>Starting from $120</span>
-                <div className='fpRating'>
-                    <button>8.9</button>
-                    <span>Excellent</span>
-                </div>
-            </div>
+            ))
+        }
+            </>}
         </div>
     )
 }

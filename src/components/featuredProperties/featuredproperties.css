@@ -19,6 +19,7 @@
 
 .fpName{
     font-weight: bold;
+    text-transform: capitalize;
 }
 
 .fpCity{
