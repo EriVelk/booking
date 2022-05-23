@@ -49,6 +49,10 @@ const Header = ({ type }) => {
         navigate("/hotels", {state:{destination, dates, options}})
     }
 
+    const login = () => {
+        navigate('/login')
+    }
+
     return (
         <div className="header">
             <div className={type === "list" ? "headerContainer listMode":"headerContainer"}>
@@ -82,7 +86,7 @@ const Header = ({ type }) => {
                         <p className="headerDesc">
                             Get rewarded for your travels - unlock instant savings of 10% or more with a free Booking account
                         </p>
-                        {!user && <button className="headerBtn">
+                        {!user && <button className="headerBtn" onClick={login}>
                             Sign in / Register
                         </button>}
                         <div className="headerSearch">
