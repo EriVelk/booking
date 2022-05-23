@@ -26,7 +26,7 @@ const Hotel = () => {
   const [openModal, setOpenModal] = useState(false);
   const navigate = useNavigate()
 
-  const { data, loading, error, reFetch } = useFetch(`/hotels/find/${id}`)    
+  const { data, loading, error, reFetch } = useFetch(`https://booking-react-node.herokuapp.com/api/hotels/find/${id}`)    
 
   const { dates, options} = useContext(SearchContext);
 

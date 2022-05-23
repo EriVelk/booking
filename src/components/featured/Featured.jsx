@@ -4,7 +4,7 @@ import "./featured.css";
 
 const Featured = () => {
 
-    const {data, loading, error} = useFetch("/hotels/count-by-city?cities=Cancun,CDMX,Monterrey,Guadalajara")
+    const {data, loading, error} = useFetch("https://booking-react-node.herokuapp.com/api/hotels/count-by-city?cities=Cancun,CDMX,Monterrey,Guadalajara")
 
   return (
     <div className='featured'>

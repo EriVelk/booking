@@ -4,7 +4,7 @@ import useFetch from '../../hooks/useFetch';
 
 const FeaturedProperties = () => {
 
-    const {data, loading, error} = useFetch("/hotels?featured=true&min=10&max=300")
+    const {data, loading, error} = useFetch("https://booking-react-node.herokuapp.com/api/hotels?featured=true&min=10&max=300")
     
 
     return (
