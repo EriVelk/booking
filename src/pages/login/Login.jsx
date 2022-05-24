@@ -14,6 +14,10 @@ const Login = () => {
 
     const navigate = useNavigate()
 
+    const register = () =>{
+        navigate('/register')
+    }
+
     const handleChange = (e) =>{
         setCredentials(prev=>({
             ...prev, [e.target.id] : e.target.value
@@ -58,6 +62,10 @@ const Login = () => {
                     Login
                 </button>
                 {error && <span>{error.message}</span>}
+                <hr/>
+                <button disabled={loading} className="lButton" onClick={register}>
+                    Register
+                </button>
             </div>
         </div>
     )
