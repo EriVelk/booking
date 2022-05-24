@@ -13,6 +13,10 @@ const Navbar = () => {
         navigate('/login')
     }
 
+    const register = () => {
+        navigate('/register')
+    }
+
     return (
         <div className='navbar'>
             <div className='navContainer'>
@@ -20,7 +24,7 @@ const Navbar = () => {
             <span className='logo'>Booking</span>
             </Link>
                 {user ? user.username : (<div className='navItems'>
-                    <button className='navButton'>Register</button>
+                    <button className='navButton' onClick={register}>Register</button>
                     <button className='navButton' onClick={login}>Login</button>
                 </div>)}
             </div>
