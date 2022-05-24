@@ -17,13 +17,23 @@ const Navbar = () => {
         navigate('/register')
     }
 
+    const logout = () => {
+        console.log("Logout")
+        localStorage.removeItem('user')
+        navigate('/')
+        window.location.reload()
+    }
+
     return (
         <div className='navbar'>
             <div className='navContainer'>
             <Link to="/" style={{color:'inherit', textDecoration:'none', fontSize:'30px'}}>
             <span className='logo'>Booking</span>
             </Link>
-                {user ? user.username : (<div className='navItems'>
+                {user ? ( <div className='navItems'>
+                    <button className='navButton' disabled={true}>{user.username}</button>
+                    <button className='navButton' onClick={logout}>Logout</button>
+                </div>) : (<div className='navItems'>
                     <button className='navButton' onClick={register}>Register</button>
                     <button className='navButton' onClick={login}>Login</button>
                 </div>)}
